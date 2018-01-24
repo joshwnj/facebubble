@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const { exec } = require('child_process')
+const path = require('path')
+
+const srcDir = path.resolve(__dirname, '..', 'src')
+exec(`npx electron ${srcDir}`)
