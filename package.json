@@ -9,5 +9,13 @@
   },
   "keywords": [],
   "author": "joshwnj",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshwnj/facebubble.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshwnj/facebubble/issues"
+  },
+  "homepage": "https://github.com/joshwnj/facebubble#readme"
 }
