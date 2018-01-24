@@ -4,7 +4,7 @@ Recording a screencast and want to show your face?
 
 `npx facebubble` and away you go.
 
-![](https://user-images.githubusercontent.com/36711/35318892-8e487f92-0131-11e8-8c0a-f03a0c8d5ef0.png)
+![](https://user-images.githubusercontent.com/36711/35360710-cbbd791e-01b2-11e8-82ab-8b34e2ee952b.png)
 
 ## Keyboard shortcuts
 
