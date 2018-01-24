@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  background: #555;
+  width: 100vw;
+  height: 100vw;
+  border-radius: 50%;
+  clip-path: circle(100vw at center);
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  width: auto;
+  height: 100vh;
+  border-radius: 100vw;
+
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    black 50%, 
+    rgba(0,0,0,0) 50%
+  )
+}
+    </style>
+
+  </head>
+  <body>
+    <div id='root'>
+      <video autoplay="true" muted />
+    </div>
+    <script>require('./index.js')</script>
+  </body>
+</html>
