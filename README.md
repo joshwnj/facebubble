@@ -11,3 +11,13 @@ Recording a screencast and want to show your face?
 `facebubble` runs in `alwaysOnTop` mode.
 
 Use the global shortcut `Command+Control+Option+F` to toggle visibility.
+
+### Make it big
+
+You can toggle the size of the bubble with `Command+B`
+
+### Follow the cursor
+
+Use `Command+C` to make the bubble follow the cursor, so you can position it.
+
+To stop following the cursor, press `Command+C` again, or click somewhere.

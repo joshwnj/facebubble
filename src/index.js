@@ -25,7 +25,7 @@ app.on('ready', () => {
   let isFollowingMouse = false
 
   const mouseFollowMenuItem = new MenuItem({
-    label: 'Follow the mouse',
+    label: 'Follow the cursor',
     type: 'checkbox',
     click () {
       isFollowingMouse ? stopMouseFollow() : startMouseFollow()
