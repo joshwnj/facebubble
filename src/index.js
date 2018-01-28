@@ -21,19 +21,69 @@ app.on('ready', () => {
   
   win.loadURL(`file://${__dirname}/browser/index.html`)
 
-  const hotkey = globalShortcut.register('Command+Control+Option+F', () => {
-    const isVisible = win.isVisible()
+  let mouseFollowIntervalId
+  let isFollowingMouse = false
 
+  const mouseFollowMenuItem = new MenuItem({
+    label: 'Follow the mouse',
+    type: 'checkbox',
+    click () {
+      isFollowingMouse ? stopMouseFollow() : startMouseFollow()
+    },
+    accelerator: 'CmdOrCtrl+C'
+  })
+
+  let isBig = false
+  const toggleSizeMenuItem = new MenuItem({
+    label: 'Make it big',
+    type: 'checkbox',
+    click () {
+      isBig = !isBig
+      toggleSizeMenuItem.checked = isBig
+      if (isBig) {
+        win.setSize(600, 600, true)
+      }
+      else {
+        win.setSize(150, 150, true)
+      }
+    },
+    accelerator: 'CmdOrCtrl+B'
+  })
+
+  function startMouseFollow () {
+    stopMouseFollow()
+    isFollowingMouse = true
+    mouseFollowMenuItem.checked = true
+    mouseFollowIntervalId = setInterval(() => {
+      const { x, y } = electron.screen.getCursorScreenPoint()
+      win.setPosition(x, y)
+    }, 10)
+  }
+
+  function stopMouseFollow () {
+    isFollowingMouse = false
+    mouseFollowMenuItem.checked = false
+    clearInterval(mouseFollowIntervalId)
+  }
+
+  win.on('blur', () => stopMouseFollow())
+
+  const hotkey = globalShortcut.register('Cmd+Ctrl+Alt+F', () => {
+    const isVisible = win.isVisible()
+    stopMouseFollow()
     if (isVisible) {
-      win.hide()
+      win.focus()
     } else {
       win.show()
     }
   })
+
   const template = [
     {
       label: 'Facebubble',
       submenu: [
+        mouseFollowMenuItem,
+        toggleSizeMenuItem
       ]
     }
   ]
