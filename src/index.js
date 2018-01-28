@@ -1,10 +1,13 @@
 'use strict'
 
+const electron = require('electron')
 const { 
   app, 
   BrowserWindow,
-  globalShortcut
-} = require('electron')
+  globalShortcut,
+  Menu,
+  MenuItem
+} = electron
 
 app.on('ready', () => {
   const win = new BrowserWindow({
@@ -27,4 +30,26 @@ app.on('ready', () => {
       win.show()
     }
   })
+  const template = [
+    {
+      label: 'Facebubble',
+      submenu: [
+      ]
+    }
+  ]
+
+  if (process.platform === 'darwin') {
+    template.unshift({
+      label: app.getName(),
+      submenu: [
+        {role: 'about'},
+        {type: 'separator'},
+        {role: 'hide'},
+        {role: 'quit'}
+      ]
+    })
+  }
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
 })
