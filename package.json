@@ -1,6 +1,6 @@
 {
   "name": "facebubble",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Put your face in a bubble for screencasts and whatnot.",
   "main": "src/index.js",
   "bin": {
